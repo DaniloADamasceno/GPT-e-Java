@@ -18,9 +18,11 @@
 <!-- Imagem da Tela inicial do Aplicativo -->
 <div align="center">
 
-<!-- ![HelpDesk01]()
-![HelpDesk02]()
-![HelpDesk03]() -->
+![java OpenAi 2](https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/f0543921-d696-4d0c-981a-a69bc5952d4b)
+
+![Java OpenAI](https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/d9d55f3f-c6bc-4a42-868a-44ee111f0e82)
+
+
 
  </div>
 
@@ -36,7 +38,7 @@
 
 Implementação de prompt engineering (engenharia de prompts) e prompt template (template de prompts) para otimizar essas mensagens enviadas na hora de integrar a nossa aplicação com a API.
 
-Utilização da versão 4 e a 4 Turbo, as últimas versões.
+Utilização da versão 3.5 Turbo.
 
 - Integração do Java com a API da OpenAI
 - Engenharia de Prompt e template
@@ -73,7 +75,15 @@ Siga estas etapas para configurar e executar o projeto:
 git clone https://github.com/DaniloADamasceno/GPT-e-Java
 ```
 
-2. Crie uma conta para utilização da OpenAI: **https://openai.com/product**
+1. Crie uma conta para utilização da OpenAI: **https://openai.com/product**
+2. Baixe a Bliblioteca do OpenAI para Java no github: **https://github.com/TheoKanning/openai-java** e siga as instruções de utilização no Readme
+3. Ao adicionar a Dependência da biblioteca ao maven uma alteração devera ser feita no ARTIFACTID para somente **service** e adicionar o numero da versão para **0.18.2** como o exemplo a baixo:
+
+```bash
+<artifactId>service</artifactId>
+<version>0.18.2</version>
+```
+
 
 
 </br>
