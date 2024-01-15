@@ -44,7 +44,13 @@ Utilização da versão 3.5 Turbo.
 - Engenharia de Prompt e template
 - Modelos GPT e seus Custos
 - Contagem de Tokens
+- Categorizador de Produtos
+- Identificador de perfil de chatGPT a ser utilizado (3.5 Turbo, 3.5 Turbo 16k ...etc)
+- categorizador de descrição do usuário sobre o produto (Positiva, Negativa , neutra )
 - Tratamento de Erros
+  
+  Criação de um Sistema de categorização de produtos para que o chat não crie produtos aleatoriamente.
+  
 
 </br>
 </br>

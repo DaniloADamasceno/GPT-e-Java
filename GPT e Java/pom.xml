@@ -16,12 +16,20 @@
 
     <dependencies>
 
-    <!--!#          OpenAi    -->
-    <dependency>
-        <groupId>com.theokanning.openai-gpt3-java</groupId>
-        <artifactId>service</artifactId>
-        <version>0.18.2</version>
-    </dependency>
+        <!--*#          OpenAi    -->
+        <dependency>
+            <groupId>com.theokanning.openai-gpt3-java</groupId>
+            <artifactId>service</artifactId>
+            <version>0.18.2</version>
+        </dependency>
+
+        <!--*#          Contador de Tokens        -->
+        <dependency>
+            <groupId>com.knuddels</groupId>
+            <artifactId>jtokkit</artifactId>
+            <version>0.6.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>
