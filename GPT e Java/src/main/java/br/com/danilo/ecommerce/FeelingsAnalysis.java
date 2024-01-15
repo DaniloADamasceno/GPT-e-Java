@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 
 public class FeelingsAnalysis {
 
-    public static void main(String[] args){
-    try {
+    public static void main(String[] args) {
+        try {
             var promptSystem = """
                     Você é um analisador de sentimentos de avaliações de produtos.
                     Escreva um parágrafo com até 50 palavras resumindo as avaliações e depois atribua qual o sentimento geral para o produto.
@@ -38,7 +38,7 @@ public class FeelingsAnalysis {
 
             for (Path file : userReviewFiles) {
 
-                System.out.println(" Iniciando análise do produto: " + file.getFileName() + "\n"); // --> Imprime o nome do arquivo
+                System.out.println(" Iniciando análise do produto: | Starting product analysis: " + file.getFileName()); // --> Imprime o nome do arquivo
 
 
                 var promptUser = loadFileReviews(file);
@@ -63,13 +63,13 @@ public class FeelingsAnalysis {
                         .createChatCompletion(request)
                         .getChoices().get(0).getMessage().getContent();
 
-            saveCustomerAnalysis(file.getFileName().toString().  // --> Salvar somente o nome do arquivo
-                            replace(".txt",""), // --> Remover o .txt do nome do arquivo
-                    answers);
+                saveCustomerAnalysis(file.getFileName().toString().                   // --> Salvar somente o nome do arquivo
+                                replace(".txt", ""),                     // --> Remover o .txt do nome do arquivo
+                        answers);
 
-                System.out.println(" Analise Finalizada");
+                System.out.println(" Analise Finalizada | Analysis Finished" + "\n");
             }
-        } catch (Exception e) {
+        } catch (Exception errorWhenParsingFiles) {
             System.out.println("Erro ao analisar o produto! | Error analyzing product!");
         }
     }

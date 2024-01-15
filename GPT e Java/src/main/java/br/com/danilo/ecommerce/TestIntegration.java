@@ -78,8 +78,7 @@ public class TestIntegration {
 
 
 
-        //var tokenKey = System.getenv("OPENAI_API_KEY");                                        // --> Variável de ambiente com o Token da API OpenAI
-        var tokenKey = "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";                                       // --> Variável de ambiente com o Token da API OpenAI
+        var tokenKey = System.getenv("OPENAI_API_KEY");                                        // --> Variável de ambiente com o Token da API OpenAI
         var service = new OpenAiService(tokenKey, Duration.ofSeconds(45));                   // --> Token da API OpenAI + Tempo de espera para a resposta da API
         var completionRequest = ChatCompletionRequest
                 .builder()

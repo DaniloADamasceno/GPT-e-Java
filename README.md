@@ -46,11 +46,26 @@ Utilização da versão 3.5 Turbo.
 - Contagem de Tokens
 - Categorizador de Produtos
 - Identificador de perfil de chatGPT a ser utilizado (3.5 Turbo, 3.5 Turbo 16k ...etc)
-- categorizador de descrição do usuário sobre o produto (Positiva, Negativa , neutra )
+- categorizador de descrição do usuário sobre o produto
 - Tratamento de Erros
   
-  Criação de um Sistema de categorização de produtos para que o chat não crie produtos aleatoriamente.
-  
+## VARIAÇÕES E TIPOS DO PROJETO
+
+### Contador de Tokens
+
+      Contados de Tokens e seus seus custos ao usuário ao fazer requisições a API do chatGPT
+
+### Categorizador de Custos
+
+      Categorizador de produtos onde ha uma separação e uma categorização de produtos automática
+
+### Identificador de Perfil
+
+      Identificador de perfil e escolha da melhor API a ser utilizada para o sistema com base nos custos de operação 
+
+### Analise de Reviews
+
+      Analizador de reviews de usuários, onde vários usuários fazem suas analises e a API lê todas e faz uma analise geral do produto, classificando as analises em POSITIVAS, NEGATIVAS ou NEUTRAS e também classificado 3 pontos positivos e 3 pontos negativos do produto com base nas analises dos usuários 
 
 </br>
 </br>
@@ -129,6 +144,12 @@ Maven
 ________________________________________________________________________________________________________________________________________________________________
 
 ## Atualizações de Projeto e suas Versões
+
+*Atualização* 1.1.0 :
+> Desenvolvimento do projeto.
+> BACK-END em desenvolvimento.
+> --> **TRATAMENTO DE ERROS**
+</br>
 
 *Atualização* 1.0.0 :
 > Desenvolvimento do projeto.

@@ -13,7 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Arrays;
-
+// --> Identificador de Perfil de Compra de Clientes
 public class ProfileIdentifier {
 
     //! ---------------------------------------------   METHODS   ------------------------------------------------------
@@ -35,8 +35,8 @@ public class ProfileIdentifier {
 
         //? ------------------------------------  TESTE MODEL OPENAI  --------------------------------------------------
 
-        System.out.println("Quantidade de Tokens: " + tokens);
-        System.out.println("Modelo OpenAI: " + modelOpenAI + "\n");
+        System.out.println("Quantidade de Tokens: | Number of Tokens:" + tokens);
+        System.out.println("Modelo OpenAI: | Model OpenAI: " + modelOpenAI + "\n");
         System.out.println("||- ---------------------------------------------------------------- -||" + "\n" + "\n");
 
         if (tokens > 4096) {                // verificador de quantidade de tokens para escolha do melhor modelo do OpenAI
