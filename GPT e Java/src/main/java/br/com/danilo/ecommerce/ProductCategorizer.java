@@ -9,8 +9,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
-public class ProductCategorizer {           // --> Categorizador de Produtos
+// --> Categorizador de Produtos
+public class ProductCategorizer {
 
     public static void main(String[] args) {
 
@@ -55,13 +55,8 @@ public class ProductCategorizer {           // --> Categorizador de Produtos
 
     public static void triggerRequest(String userRepresentation, String systemRepresentation) {
 
-
-
-
-
-        var tokenKey2 = "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";                                       // --> Variável de ambiente com o Token da API OpenAI
         var tokenKey = System.getenv("OPENAI_API_KEY");                                        // --> Variável de ambiente com o Token da API OpenAI
-        var service = new OpenAiService(tokenKey2, Duration.ofSeconds(30));                   // --> Token da API OpenAI
+        var service = new OpenAiService(tokenKey, Duration.ofSeconds(30));                   // --> Token da API OpenAI
 
         var completionRequest = ChatCompletionRequest
                 .builder()

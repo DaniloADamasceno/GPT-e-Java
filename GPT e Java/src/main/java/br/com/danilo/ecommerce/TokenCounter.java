@@ -6,6 +6,7 @@ import com.knuddels.jtokkit.api.EncodingRegistry;
 import com.knuddels.jtokkit.api.ModelType;
 
 import java.math.BigDecimal;
+
 public class TokenCounter {
 
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class TokenCounter {
 
         System.out.println("||--------------------------------------------------------------||");
 
-        System.out.println("QTD de Tokens: | QTY of Tokens: " +qtd);
+        System.out.println("QTD de Tokens: | QTY of Tokens: " + qtd);
         var priceToken = new BigDecimal(qtd)
                 .divide(new BigDecimal("1000"))
                 .multiply(new BigDecimal("0.0010"));

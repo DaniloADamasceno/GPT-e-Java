@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+// --> Analisador de Sentimentos de Avaliações de Produtos
 public class FeelingsAnalysis {
 
     public static void main(String[] args) {
@@ -37,9 +38,7 @@ public class FeelingsAnalysis {
                     .collect(Collectors.toList());
 
             for (Path file : userReviewFiles) {
-
                 System.out.println(" Iniciando análise do produto: | Starting product analysis: " + file.getFileName()); // --> Imprime o nome do arquivo
-
 
                 var promptUser = loadFileReviews(file);
                 String modelOpenAI = "gpt-3.5-turbo";                                     // --> Modelo do OpenAI a ser utilizado
@@ -88,8 +87,8 @@ public class FeelingsAnalysis {
         try {
             var path = Path.of("src/main/resources/savedCustomerReviews" + file + ".txt");
             Files.writeString(path, analise, StandardOpenOption.CREATE_NEW);
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao salvar o arquivo! | Error saving file!", e);
+        } catch (Exception errorSaveAnalysis) {
+            throw new RuntimeException("Erro ao salvar o arquivo! | Error saving file!", errorSaveAnalysis);
         }
     }
 
