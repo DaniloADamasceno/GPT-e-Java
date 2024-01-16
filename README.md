@@ -22,8 +22,6 @@
 
 ![Java OpenAI](https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/d9d55f3f-c6bc-4a42-868a-44ee111f0e82)
 
-
-
  </div>
 
 </br>
@@ -66,6 +64,12 @@ Utilização da versão 3.5 Turbo.
 ### Analise de Reviews
 
       Analizador de reviews de usuários, onde vários usuários fazem suas analises e a API lê todas e faz uma analise geral do produto, classificando as analises em POSITIVAS, NEGATIVAS ou NEUTRAS e também classificado 3 pontos positivos e 3 pontos negativos do produto com base nas analises dos usuários 
+
+## MODO CHATBOT
+
+</br>
+
+A proposta é desenvolver um assistente virtual para responder às dúvidas comuns que as clientes possam ter durante a navegação. Desenvolveremos esse projeto e as respostas que o chatbot vai devolver serão todas geradas pela Inteligência Artificial da OpenAI.
 
 </br>
 </br>
@@ -130,6 +134,7 @@ Se desejar contribuir para este projeto, siga estas etapas:
 **Back-end:**     ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white "Badge Java") 
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 
 <!-- ![SpringBoot](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white "Badge Spring Boot") -->
 
@@ -144,6 +149,12 @@ Se desejar contribuir para este projeto, siga estas etapas:
 ________________________________________________________________________________________________________________________________________________________________
 
 ## Atualizações de Projeto e suas Versões
+
+*Atualização* 2.1.0 :
+> Desenvolvimento do projeto ChatBot.
+> BACK-END em desenvolvimento.
+> --> **DESENVOLVIMENTO INICIAL**
+</br>
 
 *Atualização* 1.1.0 :
 > Desenvolvimento do projeto.
