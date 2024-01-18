@@ -1,4 +1,4 @@
-package org.danilo.softway_inc;
+package br.com.danilo.softway_inc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
