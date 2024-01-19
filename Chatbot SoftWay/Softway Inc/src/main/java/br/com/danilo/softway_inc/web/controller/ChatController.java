@@ -30,20 +30,8 @@ public class ChatController {
     // --> Responde a question
     @PostMapping
     @ResponseBody
-    public ResponseBodyEmitter answerQuestion(@RequestBody QuestionDto dto) {
-        var responseFlow = chatbotService.answerQuestion(dto.question());
-        var emitter = new ResponseBodyEmitter();
-
-        responseFlow.subscribe(                              // --> Inscreve-se para receber os eventos
-                chunk -> {
-                    var tokenChunk = chunk.getChoices().get(0).getMessage().getContent();
-                    if (tokenChunk != null) {
-                        emitter.send(tokenChunk);     // --> Envia o token para o cliente
-                    }
-                }, emitter::completeWithError,       // --> Envia um erro para o cliente
-                emitter::complete                           // --> Completa o fluxo
-        );
-        return emitter;
+    public String answerQuestion(@RequestBody QuestionDto dto) {
+        return chatbotService.answerQuestion(dto.question());
     }
 
     // --> Limpa a conversa
