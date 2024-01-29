@@ -21,7 +21,7 @@ public class ChatbotApplication implements CommandLineRunner {
         System.out.println("GitHub: https://github.com/DaniloADamasceno");
         System.out.println("link para acessar o SWAGGER: http://localhost:8080/swagger-ui.html");
         System.out.println("Link para acessar a API da OpenAI: https://platform.openai.com/signup");
-        System.out.println("Link para acessar o ChatBot: http://localhost:8080/chatbot");
+        System.out.println("Link para acessar o ChatBot: http://localhost:8080/chat");
         System.out.println("✅ ✅");
     }
 }
