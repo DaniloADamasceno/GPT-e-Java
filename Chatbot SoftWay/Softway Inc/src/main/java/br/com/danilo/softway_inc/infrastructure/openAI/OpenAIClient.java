@@ -10,18 +10,21 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class OpenAIClient {
 
     //! ---------------------------------------------   Attributes   ---------------------------------------------------
-    private final String tokenKey;                                              // --> Chave da API
-    private final String assistantID;                                           // --> Chave do Assistente
-    private String threadID;                                                    // --> ID da Thread
-    private final OpenAiService openAiService;                                  // --> Serviço OpenAI
-    private final String model = "gpt-3.5-turbo";                               // --> Modelo do GPT
+    private final String tokenKey;                         // --> Chave da API
+    private final String assistantID;                      // --> Chave do Assistente
+    private String threadID;                               // --> ID da Thread
+    private final OpenAiService openAiService;             // --> Serviço OpenAI
+    private final String model = "gpt-3.5-turbo";          // --> Modelo do GPT
 
     //! ---------------------------------------------   Constructor   --------------------------------------------------
     public OpenAIClient(@Value("${app.openai.api.key}") String tokenKey,
@@ -83,5 +86,32 @@ public class OpenAIClient {
 
         return assistantResponse;
     }
+
+    //-> Carregar Histórico de Conversa
+    public List<String> uploadMessageHistory() {
+        var messages = new ArrayList<String>();
+
+        if (this.threadID != null) {
+            messages.addAll(
+                    openAiService
+                            .listMessages(this.threadID)
+                            .getData()                         // --> Pega os dados da lista de mensagens
+                            .stream()                          // --> Transforma em Stream
+                            .sorted(Comparator.comparingInt(Message::getCreatedAt)) // --> Ordena as mensagens pela data de criação
+                            .map(mapMessage -> mapMessage.getContent().get(0).getText().getValue()) // --> Pega a mensagem e adiciona na lista
+                            .collect(Collectors.toList()) // --> Transforma em lista
+            );
+        }
+
+        return messages;
+    }
+    // -> Limpar Thread
+    public void clearThread() {
+        if(this.threadID != null) {
+            openAiService.deleteThread(this.threadID); // --> Deleta a Thread
+            this.threadID = null;
+        }
+    }
 }
+
 

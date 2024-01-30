@@ -3,8 +3,8 @@ package br.com.danilo.softway_inc.web.controller;
 import br.com.danilo.softway_inc.domain.service.ChatbotService;
 import br.com.danilo.softway_inc.web.dto.QuestionDto;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 
 
 // --> Controlador de chat
@@ -23,7 +23,11 @@ public class ChatController {
     //!--------------------------------------------   METHODS   ----------------------------------------------------
     // --> Carrega a página do chat
     @GetMapping
-    public String loadChatbotPage() {
+    public String loadChatbotPage(Model model) {
+        var historyMessages = chatbotService.loadHistory(); // --> Carrega o histórico de mensagens
+
+        model.addAttribute("historico", historyMessages); // --> Adiciona o histórico de mensagens no modelo e retorna a página
+
         return PAGE_CHAT;
     }
 
@@ -37,6 +41,7 @@ public class ChatController {
     // --> Limpa a conversa
     @GetMapping("limpar")
     public String clearConversation() {
-        return PAGE_CHAT;
+        chatbotService.clearConversation();
+        return "redirect:/chat";
     }
 }
