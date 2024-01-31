@@ -24,7 +24,7 @@ public class OpenAIClient {
     private final String assistantID;                      // --> Chave do Assistente
     private String threadID;                               // --> ID da Thread
     private final OpenAiService openAiService;             // --> Serviço OpenAI
-    private final String model = "gpt-3.5-turbo";          // --> Modelo do GPT
+    private final String model = "gpt-3.5-turbo-1106";     // --> Modelo do GPT
 
     //! ---------------------------------------------   Constructor   --------------------------------------------------
     public OpenAIClient(@Value("${app.openai.api.key}") String tokenKey,
@@ -36,11 +36,7 @@ public class OpenAIClient {
 
     //! ---------------------------------------------   Methods   ------------------------------------------------------
 
-    /**
-     * Método responsável por enviar uma requisição para a API da OpenAI
-     * @param dados
-     * @return
-     */
+   // —> Enviar Requisição para o Chat
     public String sendRequestToChatCompletion(ChatCompletionRequestData dados) {
         var messageRequest = MessageRequest                         // --> Cria uma requisição de mensagem (Representa a mensagem enviada pelo usuário)
                 .builder()
@@ -62,6 +58,7 @@ public class OpenAIClient {
 
         var runRequest = RunCreateRequest                         // --> Cria uma requisição de Run (Representa uma execução do modelo GPT-3.5-Turbo)
                 .builder()
+                .model(this.model)
                 .assistantId(assistantID)
                 .build();                                                          // --> Cria uma Run na API da OpenAI
         var run = openAiService
@@ -82,7 +79,8 @@ public class OpenAIClient {
                 .getData()                                                          // --> Pega os dados da lista de mensagens
                 .stream()                                                           // --> Transforma em Stream
                 .sorted(Comparator.comparingInt(Message::getCreatedAt).reversed())  // --> Ordena as mensagens pela data de criação de forma reversa
-                .findFirst().get().getContent().get(0).getText().getValue();        // --> Pega a primeira mensagem da lista
+                .findFirst().get().getContent().get(0).getText().getValue()  // --> Pega a primeira mensagem da lista
+                .replaceAll("\\\u3010.*?\\\u3011", "");          // --> Remove os  Caracteres do final da mensagem
 
         return assistantResponse;
     }
@@ -99,7 +97,7 @@ public class OpenAIClient {
                             .stream()                          // --> Transforma em Stream
                             .sorted(Comparator.comparingInt(Message::getCreatedAt)) // --> Ordena as mensagens pela data de criação
                             .map(mapMessage -> mapMessage.getContent().get(0).getText().getValue()) // --> Pega a mensagem e adiciona na lista
-                            .collect(Collectors.toList()) // --> Transforma em lista
+                            .collect(Collectors.toList())   // --> Transforma em lista
             );
         }
 
