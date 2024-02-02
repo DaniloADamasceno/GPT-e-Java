@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Service
 public class ShippingCalculator {
 
-    public BigDecimal computeShippingCost(DataShippingCalculations dataShippingCalculations) {
+    public static BigDecimal computeShippingCost(DataShippingCalculations dataShippingCalculations) {
         //lógica para cálculo de frete aquí...
 
         return new BigDecimal("3.45").multiply(new BigDecimal(dataShippingCalculations.quantityProducts()));
